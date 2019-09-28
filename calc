@@ -18,3 +18,24 @@ while True:
                 print("Деление на ноль!")
     else:
         print("Неверный знак операции!")
+
+# some fun by functional programming
+
+def inch(x):
+    return x + 1
+
+
+def increment_aech(elements):
+    result = []
+    for  elem in elements:
+         elements.append(inch(elem))
+    return results
+
+increment_aech([1,2,3])
+
+## что эквививалентно благодаря функциональному программированию следующему:
+
+map(inch,[1,2,3])
+
+#or
+map(lambda x:x+1, [1,2,3])
