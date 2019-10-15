@@ -15,3 +15,7 @@ if len(w)>0:
   print(count_symbols(w))
 else:
   print("let your word be longer")
+
+
+### or ####
+def is_palindromic(s): return all(s[i] == s[~i] for i in range(len(s) / 2)) 
