@@ -1,9 +1,10 @@
-def is_palindrome(s):
-	"""A string is said to be palindrome if reverse of the string is same as string. 
-	Return True if s is palindrome
-	"""
+def get_3_lagest(l):
+	"""Find 3 the largest items from a list"""
 	# Only change code below this line
-	return all(s[i] == s[~i] for i in range(len(s))) 
+	if len(l)<3: return l
+	else:
+	    l.sort() #(reverse=True)
+	return l[-3:len(l)]
 	# Only change code above this line
 
 
@@ -18,9 +19,9 @@ def test(x, y, msg):
 		global ok
 		ok = False
  
-test(is_palindrome(""), True, "Empty string")
-test(is_palindrome("abc"), False, "Is not palindrome")
-test(is_palindrome("abba"), True, "Is palindrome")
+test(get_3_lagest([]), [], "Empty list")
+test(get_3_lagest([1, 2]), [1, 2], "Only 2 items")
+test(get_3_lagest([3, 2, 1, 5, -1, 7, 3, 8]), [5, 7, 8], "More than 3 items")
 
 if ok:
 	print("All tests passed")
