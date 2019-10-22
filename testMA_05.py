@@ -2,23 +2,26 @@ def count_words(text):
 	"""Find quantities of each unique word in a text.
 	Return list of tuples (word, count) sorted by counts"""
 	# Only change code below this line
+	def getUniqueWords(list1):
+	    unique_list = []
+	    for x in list1:
+	        if x not in unique_list:
+	            unique_list.append(x)
+	    return unique_list	
+
 	list_tuples = []
 	words = text.split()
-	unique_words = set(words)
-	print(words)
+	unique_words = getUniqueWords(words)
+
 	for uw in unique_words:
 	    quantities_uw = 0
 	    for w in words:
 	        if w == uw:
 	            quantities_uw +=1
-	    #list_tuples+= [(uw, quantities_uw)]
 	    list_tuples.append((uw, quantities_uw))
-	return sorted(list_tuples, key = lambda x: -x[1]) #, reverse = True)
-	#return list_tuples.sort(key = lambda x: x[1])
-	# .sort(key = 1) 
+	return sorted(list_tuples, key = lambda x: -x[1])
+	
 	# Only change code above this line
-
-
 ok = True
  
 def test(x, y, msg):
