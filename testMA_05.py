@@ -5,14 +5,16 @@ def count_words(text):
 	list_tuples = []
 	words = text.split()
 	unique_words = set(words)
+	print(words)
 	for uw in unique_words:
 	    quantities_uw = 0
 	    for w in words:
 	        if w == uw:
 	            quantities_uw +=1
-	    list_tuples+= [(uw, quantities_uw)]
-	return sorted(list_tuples, key = lambda x: x[1], reverse = True)
-	# list_tuples.sort(key = lambda x: x[1])
+	    #list_tuples+= [(uw, quantities_uw)]
+	    list_tuples.append((uw, quantities_uw))
+	return sorted(list_tuples, key = lambda x: -x[1]) #, reverse = True)
+	#return list_tuples.sort(key = lambda x: x[1])
 	# .sort(key = 1) 
 	# Only change code above this line
 
