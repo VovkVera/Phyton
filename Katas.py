@@ -8,6 +8,8 @@ def high_and_low(numbers):
         listInt.append(i)
     numbers = str(max(listInt))   + " " + str(min(listInt))
     return numbers    
+
+#------------------------------------------------------------------------
   Test.assert_equals(high_and_low("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"), "542 -214");
     
 # -------------------------  or ------------------------------------------
@@ -46,3 +48,23 @@ def high_and_low(numbers):
 def high_and_low(numbers):
   numbers = [int(c) for c in numbers.split(' ')]
   return f"{max(numbers)} {min(numbers)}"
+
+
+#An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+def is_isogram(string): return len(string) == len(set(string.lower()))
+
+string = "aba"
+print(is_isogram(string))
+
+"""
+
+Test.assert_equals(is_isogram("Dermatoglyphics"), True )
+Test.assert_equals(is_isogram("isogram"), True )
+Test.assert_equals(is_isogram("aba"), False, "same chars may not be adjacent" )
+Test.assert_equals(is_isogram("moOse"), False, "same chars may not be same case" )
+Test.assert_equals(is_isogram("isIsogram"), False )
+Test.assert_equals(is_isogram(""), True, "an empty string is a valid isogram" )
+
+"""
+
+
