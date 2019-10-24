@@ -66,5 +66,22 @@ Test.assert_equals(is_isogram("isIsogram"), False )
 Test.assert_equals(is_isogram(""), True, "an empty string is a valid isogram" )
 
 """
+#In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
+#At the end of the first year there will be: 
+#1000 + 1000 * 0.02 + 50 => 1070 inhabitants
 
+def nb_year(p0, percent, aug, p):
+    years = 0
+    while p0<p:
+        years +=1
+        p0+= p0*percent/100 + aug
+        print(p0)
+    return years
+    
+print(nb_year(1500000, 2.5, 10000, 2000000))
 
+#--------------- or
+def nb_year(p0, percent, aug, p, years = 0):
+    if p0 < p:
+        return nb_year(p0 + int(p0 * percent / 100) + aug, percent, aug, p, years + 1)
+    return years
