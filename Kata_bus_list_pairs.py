@@ -26,5 +26,6 @@ def number(bus_stops):
 print(number([[3,0],[9,1],[4,10],[12,2],[6,1],[7,10]]))
 
 # or
-def number(bus_stops):
     return sum([stop[0] - stop[1] for stop in bus_stops])
+# or
+    return sum(on - off for on, off in bus_stops)
