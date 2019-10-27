@@ -85,3 +85,18 @@ def nb_year(p0, percent, aug, p, years = 0):
     if p0 < p:
         return nb_year(p0 + int(p0 * percent / 100) + aug, percent, aug, p, years + 1)
     return years
+
+
+def xo(s):
+    amountX = 0
+    amountO = 0
+    for i in s:
+        if i == 'x' or i == 'X':
+            amountX += 1
+        if i == 'o' or i == 'O':
+            amountO += 1
+    return amountX == amountO
+    
+    # or ???? чуть сомнительно (не все поддерживают count ... проверить)
+    return s.lower().count("x") == s.lower().count("o")
+print(xo("xooxx"))
