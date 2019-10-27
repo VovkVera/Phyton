@@ -49,3 +49,24 @@ def positive_sum(arr):
     return sum
 
 #or  return sum(filter(lambda x: x > 0,arr))
+
+# -----------------
+
+def basic_op(operator, value1, value2):
+    operations = {
+    '+': lambda value1, value2: value1 + value2,
+    '*': lambda value1, value2: value1 * value2,
+    '/': lambda value1, value2: value1 / value2,
+    '-': lambda value1, value2: value1 - value2
+        
+    }
+    
+    return operations[operator](value1, value2)
+    
+print(basic_op('-', 15, 18))
+
+#orr
+ return eval("{}{}{}".format(value1, operator, value2))
+ # or !!!!
+ return eval(str(value1) + operator + str(value2))
+ 
