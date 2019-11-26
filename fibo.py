@@ -19,9 +19,12 @@ else:
 
 # or
 def fibonacci(n):
-  a = b =1
-  for i in range(n):
-     yield a
+     
+  a = b = 1
+  fibo_arr = [a]
+  for i in range(n-1):
      a, b = b, a + b
-
-print(sum(fibonacci(100)))
+     fibo_arr.append(a)
+  return fibo_arr
+     
+print(fibonacci(10))
