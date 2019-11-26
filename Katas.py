@@ -100,3 +100,28 @@ def xo(s):
     # or ???? чуть сомнительно (не все поддерживают count ... проверить)
     return s.lower().count("x") == s.lower().count("o")
 print(xo("xooxx"))
+
+# -------- подсчитать сумму кратных 3 и 5 от 1-го до n
+
+def find(n):
+    sum35 = 0
+    sum15 = 0
+    for i in range(0,n+1,3):
+        sum35+=i
+    for i in range(0,n+1,5):
+        sum35 +=i
+    for i in range(0,n+1,15):
+        sum15+=i
+    return sum35 - sum15
+print(find(100))
+
+
+def find2(n):
+    return sum(e for e in range(1, n+1) if e % 3 == 0 or e % 5 == 0)
+    
+print(find2(100))
+
+def find3(n):
+    return sum(range(0, n+1, 3)) + sum(range(0, n+1, 5)) - sum(range(0, n+1, 15))
+
+print(find3(100))
