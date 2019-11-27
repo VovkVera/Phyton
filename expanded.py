@@ -47,20 +47,21 @@ https://www.codewars.com/kata/write-number-in-expanded-form/python
 
 # part 2
 def expanded_form(num):
-    
-    def expanded_form_pre(num1):
-        exp1 = len(str(num1))-1
-        expand1 = str(int(str(num1)[0])*(10**exp1))
-        t = num - int(expand)
-        if exp1>0 and t1>0: expand1 += " + " + str(expanded_form_pre(t))
-    return expand1
-    
+    def expanded_form_pre(numpre):
+        exppre = len(str(numpre)) -1
+        print("exppre = ", exppre)
+        expandpre = str(int(str(numpre)[0])*(10**exppre))
+        t = numpre - int(expandpre)
+        if exppre>0 and t>0: expandpre += " + " + str(expanded_form_pre(t))
+        return expandpre
     
     point = str(num).index(".")
     expand =  str(num)[0:point]
-    if expand == str(0): expand = ""
-    else: expand = str(expanded_form_pre(int(expand)))
-
+    if expand == "0":
+        expand = ""
+    else:
+        expand = str(expanded_form_pre(int(expand)))
+    print("expand = ", expand)
     part = str(num)[(point+1):]
     exp = 1
     for i in part:
@@ -70,4 +71,14 @@ def expanded_form(num):
         exp +=1
     return expand
     
-print(expanded_form(0.100003))
+print(expanded_form(226))
+
+
+# oooooor
+def expanded_form(num):
+    integer_part, fractional_part = str(num).split('.')
+
+    result = [str(int(num) * (10 ** i)) for i, num in enumerate(integer_part[::-1]) if num != '0'][::-1]
+    result += [str(num) + '/' + str(10 ** (i + 1)) for i, num in enumerate(fractional_part) if num != '0']
+
+    return ' + '.join(result)
