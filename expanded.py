@@ -43,3 +43,21 @@ NOTE: All numbers will be whole numbers greater than 0.
 https://www.codewars.com/kata/write-number-in-expanded-form/python
 
 """
+
+
+# part 2
+
+def expanded_form(num):
+    point = str(num).index(".")
+    expand =  str(num)[0:point]
+    if expand == str(0): expand = ""
+    
+    part = str(num)[(point+1):]
+    exp = 1
+    
+    for i in part:
+        if expand != "" and i!="0": expand += " + "
+        if i!="0":
+            expand += str(i) + "/" + str(10**exp)
+        exp +=1
+    return expand
