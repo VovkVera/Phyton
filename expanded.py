@@ -46,18 +46,28 @@ https://www.codewars.com/kata/write-number-in-expanded-form/python
 
 
 # part 2
-
 def expanded_form(num):
+    
+    def expanded_form_pre(num1):
+        exp1 = len(str(num1))-1
+        expand1 = str(int(str(num1)[0])*(10**exp1))
+        t = num - int(expand)
+        if exp1>0 and t1>0: expand1 += " + " + str(expanded_form_pre(t))
+    return expand1
+    
+    
     point = str(num).index(".")
     expand =  str(num)[0:point]
     if expand == str(0): expand = ""
-    
+    else: expand = str(expanded_form_pre(int(expand)))
+
     part = str(num)[(point+1):]
     exp = 1
-    
     for i in part:
         if expand != "" and i!="0": expand += " + "
         if i!="0":
             expand += str(i) + "/" + str(10**exp)
         exp +=1
     return expand
+    
+print(expanded_form(0.100003))
