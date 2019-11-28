@@ -25,5 +25,24 @@ print(series_sum(3))
 
 def series_sum(n):
     return '{:.2f}'.format(sum(1.0/(3 * i + 1) for i in range(n)))
-  
+
+#--------------------------------------  
  
+def toJadenCase(string):
+    """
+    u = string[0].upper()
+    string = u + string[1:]
+            
+    for i in range(len(string)-1):
+        if string[i] == " ":
+            print(i)
+            u = string[i+1].upper()
+            string = string[:(i+1)] + u + string[i+2:]
+            
+    return string
+    """
+    # or
+    return " ".join(w.capitalize() for w in string.split())
+    
+    
+print(toJadenCase("jow can mirrors "))
